@@ -229,16 +229,6 @@ During the deployment lifecycle, several real-world operational challenges were 
 
 ---
 
-## 👥 Authors & Academic Context
-
-* **Houssam Niri** - 4IIR Engineering Student, EMSI
-* **Othmane Aitmbarek** - 4IIR Engineering Student, EMSI
-* **Academic Supervisor:** Mr. Chiba Zouhair
-* **Institution:** École Marocaine des Sciences de l'Ingénieur (EMSI)
-* **Academic Year:** 2025 – 2026
-
----
-
 ## 📜 License
 
 This project is open-source and available under the [MIT License](LICENSE).
