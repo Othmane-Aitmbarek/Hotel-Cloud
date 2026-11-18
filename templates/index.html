@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Django - Dashboard & Surveillance Cloud</title>
+    <style>
+        :root {
+            --primary: #1e4778;
+            --accent: #009646;
+            --bg: #f5f7fa;
+            --card-bg: #ffffff;
+            --text: #2d3748;
+            --border: #e2e8f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background: var(--bg); color: var(--text); padding: 2rem; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 2px solid var(--border); padding-bottom: 1rem; }
+        .title h1 { color: var(--primary); font-size: 1.8rem; }
+        .title p { color: #718096; font-size: 0.95rem; margin-top: 0.25rem; }
+        .badge { background: var(--accent); color: white; padding: 0.4rem 0.8rem; border-radius: 9999px; font-size: 0.85rem; font-weight: bold; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .stat-card { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .stat-card h3 { font-size: 0.85rem; text-transform: uppercase; color: #a0aec0; letter-spacing: 0.05em; }
+        .stat-card .value { font-size: 2rem; font-weight: bold; color: var(--primary); margin-top: 0.5rem; }
+        .content-card { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 1.5rem; }
+        .content-card h2 { color: var(--primary); font-size: 1.25rem; margin-bottom: 1rem; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+        th { background: #edf2f7; color: #4a5568; font-weight: 600; }
+        tr:hover { background: #f8fafc; }
+        .footer { text-align: center; color: #a0aec0; font-size: 0.85rem; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            <h1>🏨 Hotel Django — Plateforme de Gestion Hôtelière</h1>
+            <p>Infrastructure Cloud Haute Disponibilité (Docker · Kubernetes · AWS EC2 · Wazuh SIEM)</p>
+        </div>
+        <div>
+            <span class="badge">● Cluster K8s Actif</span>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Chambres Enregistrées</h3>
+            <div class="value">{{ total_chambres }}</div>
+        </div>
+        <div class="stat-card">
+            <h3>Réservations Totales</h3>
+            <div class="value">{{ total_reservations }}</div>
+        </div>
+        <div class="stat-card">
+            <h3>Clients Actifs</h3>
+            <div class="value">{{ total_clients }}</div>
+        </div>
+        <div class="stat-card">
+            <h3>Supervision SIEM</h3>
+            <div class="value" style="color: var(--accent);">Wazuh OK</div>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <h2>Dernières Chambres</h2>
+        {% if chambres %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Type</th>
+                    <th>Prix par nuit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for chambre in chambres %}
+                <tr>
+                    <td><strong>Chambre {{ chambre.numero }}</strong></td>
+                    <td>{{ chambre.get_type_display }}</td>
+                    <td>{{ chambre.prix }} DH</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p style="color: #718096; font-style: italic;">Aucune chambre n'est encore configurée dans la base de données. Connectez-vous au panneau d'administration pour en ajouter.</p>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        <p>Projet de Fin d'Année (PFA 4IIR) — EMSI 2025–2026 | Houssam Niri & Othmane Aitmbarek</p>
+    </div>
+</body>
+</html>
