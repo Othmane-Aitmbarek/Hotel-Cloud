@@ -49,7 +49,7 @@ db.sqlite3-journal
 media/
 staticfiles/
 
-# Videos, Heavy Archives & Binary Dumps
+# Videos, Heavy Archives & Presentations
 *.mp4
 *.mov
 *.avi
@@ -61,6 +61,8 @@ staticfiles/
 *.7z
 *.sql
 *.dump
+*.pptx
+*.ppt
 
 # Operating System & IDE Artifacts
 .DS_Store
