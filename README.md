@@ -13,9 +13,7 @@
 
 ## 📌 Overview
 
-This project was developed as an end-of-year engineering project (**Projet de Fin d'Année - 4IIR**, Cybersecurity & Network Infrastructure track at **EMSI**). 
-
-The primary objective is to modernize a traditional, single-point-of-failure hotel management web application (**Hotel Django**) by deploying it onto a scalable, highly available, resilient, and securely monitored multi-node Cloud infrastructure on **Amazon Web Services (AWS)** using **Docker**, **Kubernetes (kubeadm)**, and **Wazuh SIEM**.
+This project was developed as an end-of-year engineering project. The primary objective is to modernize a traditional, single-point-of-failure hotel management web application (**Hotel Django**) by deploying it onto a scalable, highly available, resilient, and securely monitored multi-node Cloud infrastructure on **Amazon Web Services (AWS)** using **Docker**, **Kubernetes (kubeadm)**, and **Wazuh SIEM**.
 
 ---
 
